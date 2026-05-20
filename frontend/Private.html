@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Herman Edward | Sign Up</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* =====================
+   ROOT COLORS
+===================== */
+:root {
+    --blue-main: #00c3ff;
+    --blue-dark: #007bff;
+    --bg-light: #eef8ff;
+    --card-bg: #fff;
+    --text-dark: #222;
+}
+
+/* =====================
+   GLOBAL
+===================== */
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background: var(--bg-light);
+    color: var(--text-dark);
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* =====================
+   HEADER
+===================== */
+header {
+    background: var(--bg-light);
+    padding: 20px 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--blue-dark);
+}
+
+nav a {
+    margin-left: 20px;
+    font-weight: 500;
+    color: var(--text-dark);
+    transition: 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+    color: var(--blue-main);
+}
+
+/* =====================
+   BACK BUTTON
+===================== */
+.btn-back {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--blue-main), var(--blue-dark));
+    color: #fff;
+    padding: 8px 18px;
+    border-radius: 22px;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 6px 18px rgba(0,195,255,0.35);
+    transition: all 0.35s ease;
+}
+
+.btn-back:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(0,195,255,0.55);
+}
+
+/* =====================
+   SIGNUP SECTION
+===================== */
+.signup {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 75vh;
+    padding: 60px 20px;
+}
+
+.signup-form {
+    background: var(--card-bg);
+    padding: 40px 30px;
+    border-radius: 25px;
+    box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+    width: 100%;
+    max-width: 400px;
+    text-align: center;
+}
+
+.signup-form h2 {
+    font-size: 28px;
+    color: var(--blue-dark);
+    margin-bottom: 25px;
+}
+
+.signup-form label {
+    display: block;
+    text-align: left;
+    font-weight: 600;
+    margin-bottom: 5px;
+    margin-top: 15px;
+}
+
+.signup-form input {
+    width: 100%;
+    padding: 12px 15px;
+    border-radius: 12px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    outline: none;
+    transition: border-color 0.3s;
+    font-size: 15px;
+}
+
+.signup-form input:focus {
+    border-color: var(--blue-main);
+    box-shadow: 0 0 8px rgba(0,195,255,0.2);
+}
+
+/* Submit Button */
+.btn {
+    display: inline-block;
+    margin-top: 20px;
+    padding: 12px 25px;
+    font-size: 16px;
+    font-weight: 600;
+    color: #fff;
+    background: linear-gradient(135deg, var(--blue-main), var(--blue-dark));
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: all 0.35s ease;
+    width: 100%;
+}
+
+.btn:hover {
+    transform: translateY(-2px) scale(1.02);
+    box-shadow: 0 12px 28px rgba(0,195,255,0.35);
+}
+
+/* =====================
+   FOOTER
+===================== */
+footer {
+    margin-top: 60px;
+    text-align: center;
+    padding: 20px;
+    color: var(--text-dark);
+}
+
+footer a {
+    color: var(--blue-main);
+    font-weight: 500;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Responsive */
+@media(max-width:480px){
+    .signup-form {
+        padding: 30px 20px;
+    }
+    nav a {
+        margin-left: 12px;
+        font-size: 14px;
+    }
+}
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+    <div class="container header-container">
+        <h1 class="logo">Herman Edward</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="contact.html">Contact</a>
+            <a href="javascript:history.back()" class="btn-back">← Back</a>
+        </nav>
+    </div>
+</header>
+
+<!-- Sign Up Section -->
+<section class="signup container">
+    <form id="signupForm" class="signup-form">
+        <h2>Sign Up</h2>
+
+        <label for="username">Username:</label>
+        <input type="text" id="username" placeholder="Enter your username" required>
+
+        <label for="password">Password:</label>
+        <input type="password" id="password" placeholder="Enter your password" required>
+
+        <button type="submit" class="btn">Sign Up</button>
+    </form>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2026 Herman Smart | <a href="mailto:harmonysmart004@gmail.com">harmonysmart004@gmail.com</a></p>
+</footer>
+
+<!-- JavaScript for private signup validation -->
+<script>
+const signupForm = document.getElementById('signupForm');
+const MY_USERNAME = "My_Lullaby";
+const MY_PASSWORD = "Shakilah@3070!";
+
+signupForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    const usernameInput = document.getElementById('username').value.trim();
+    const passwordInput = document.getElementById('password').value.trim();
+
+    if(usernameInput.toLowerCase() === MY_USERNAME.toLowerCase() && passwordInput === MY_PASSWORD){
+        window.location.href = "upload.html";
+    } else {
+        alert("Invalid credentials! Only authorized users can sign up.");
+    }
+});
+</script>
+
+</body>
+</html>

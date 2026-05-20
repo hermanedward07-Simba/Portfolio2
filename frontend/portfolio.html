@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Herman Edward | Portfolio</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <!-- Main CSS -->
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* =====================
+   GLOBAL
+===================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: #f4f9ff;
+    color: #222;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* =====================
+   HEADER
+===================== */
+header {
+    background: rgba(255, 255, 255, 0.9);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+}
+
+.logo {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #007bff;
+}
+
+nav a {
+    margin-left: 18px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+}
+
+nav a:hover,
+nav a.active {
+    color: #007bff;
+}
+
+/* Back button */
+.btn-back {
+    background: linear-gradient(135deg, #00c3ff, #007bff);
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 10px;
+}
+
+/* =====================
+   PORTFOLIO
+===================== */
+.portfolio {
+    background: linear-gradient(135deg, #eef8ff, #ffffff);
+    padding: 90px 20px;
+    text-align: center;
+}
+
+.title-blue {
+    font-size: 2.2rem;
+    color: #007bff;
+}
+
+.subtitle {
+    color: #555;
+    max-width: 600px;
+    margin: 10px auto 60px;
+}
+
+/* Grid */
+.portfolio-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 35px;
+}
+
+/* Card */
+.portfolio-card {
+    background: rgba(255, 255, 255, 0.85);
+    backdrop-filter: blur(12px);
+    border-radius: 22px;
+    padding: 40px 30px;
+    text-decoration: none;
+    color: #222;
+    box-shadow: 0 18px 40px rgba(0,0,0,0.08);
+    transition: all 0.4s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.portfolio-card::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, #007bff, #00c3ff);
+    opacity: 0;
+    z-index: -1;
+    transition: opacity 0.4s ease;
+}
+
+.portfolio-card:hover::before {
+    opacity: 1;
+}
+
+.portfolio-card:hover {
+    transform: translateY(-12px) scale(1.03);
+    color: #fff;
+}
+
+.icon {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+}
+
+/* =====================
+   FOOTER
+===================== */
+footer {
+    background: #ffffff;
+    text-align: center;
+    padding: 22px 10px;
+    margin-top: 80px;
+    box-shadow: 0 -6px 20px rgba(0,0,0,0.05);
+}
+
+footer a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* =====================
+   ANIMATIONS
+===================== */
+.hidden {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+    </style>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header>
+    <div class="container header-container">
+        <h1 class="logo">Herman Edward</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="portfolio.html" class="active">Portfolio</a>
+            <a href="contact.html">Contact</a>
+            <a href="javascript:history.back()" class="btn-back">← Back</a>
+        </nav>
+    </div>
+</header>
+
+<!-- ================= PORTFOLIO ================= -->
+<section class="portfolio">
+    <div class="container">
+        <h2 class="title-blue">My Portfolio</h2>
+        <p class="subtitle">
+            Explore my work across design, development, and data.
+        </p>
+
+        <div class="portfolio-grid">
+
+            <a href="graphics.html" class="portfolio-card">
+                <div class="icon">🎨</div>
+                <h3>Graphics Design</h3>
+                <p>Logos, posters, branding, and creative visual designs.</p>
+                <span>View Projects →</span>
+            </a>
+
+            <a href="websites.html" class="portfolio-card">
+                <div class="icon">💻</div>
+                <h3>Websites & Systems</h3>
+                <p>Web apps, systems, dashboards, and UI solutions.</p>
+                <span>View Projects →</span>
+            </a>
+
+            <a href="data_science.html" class="portfolio-card">
+                <div class="icon">📊</div>
+                <h3>Data Analysis</h3>
+                <p>Data science, analytics, ML models, and research.</p>
+                <span>View Projects →</span>
+            </a>
+
+        </div>
+    </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer>
+    <p>&copy; 2026 Herman Smart |
+        <a href="mailto:harmonysmart004@gmail.com">harmonysmart004@gmail.com</a>
+    </p>
+</footer>
+
+<!-- JS -->
+<script >
+    // Scroll reveal animation
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add("show");
+        }
+    });
+}, { threshold: 0.2 });
+
+document.querySelectorAll(".portfolio-card").forEach(card => {
+    card.classList.add("hidden");
+    observer.observe(card);
+});
+</script>
+</body>
+</html>

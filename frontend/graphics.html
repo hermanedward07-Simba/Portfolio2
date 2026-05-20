@@ -1,0 +1,503 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Herman Edward | Graphics Design</title>
+
+<!-- Google Font -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&display=swap" rel="stylesheet">
+
+<!-- Main CSS -->
+<link rel="stylesheet" href="style.css">
+<style>
+    /* =====================
+   GLOBAL STYLES
+===================== */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background: #f4f9ff;
+    color: #222;
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* =====================
+   HEADER
+===================== */
+header {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    position: sticky;
+    top: 0;
+    z-index: 1000;
+    box-shadow: 0 6px 20px rgba(0,0,0,0.06);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px 0;
+}
+
+.logo {
+    font-size: 1.6rem;
+    font-weight: 700;
+    color: #007bff;
+}
+
+nav a {
+    margin-left: 18px;
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+}
+
+nav a:hover,
+nav a.active {
+    color: #007bff;
+}
+
+.btn-back {
+    background: linear-gradient(135deg, #00c3ff, #007bff);
+    color: #fff;
+    padding: 8px 16px;
+    border-radius: 20px;
+    text-decoration: none;
+    font-weight: 600;
+    margin-left: 10px;
+}
+
+/* =====================
+   FOOTER
+===================== */
+footer {
+    background: #ffffff;
+    text-align: center;
+    padding: 22px 10px;
+    margin-top: 80px;
+    box-shadow: 0 -6px 20px rgba(0,0,0,0.05);
+}
+
+footer a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+/* =====================
+   GRAPHICS PORTFOLIO
+===================== */
+.graphics-portfolio {
+    background: #f9fbff;
+    padding: 80px 20px;
+    text-align: center;
+}
+
+.graphics-portfolio .title-blue {
+    font-size: 2.2rem;
+    margin-bottom: 12px;
+}
+
+.graphics-portfolio .subtitle {
+    color: #555;
+    max-width: 700px;
+    margin: 0 auto 50px;
+}
+
+/* Grid of graphics cards */
+.graphics-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 30px;
+}
+
+/* Individual card */
+.graphics-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.graphics-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    transition: transform 0.4s ease;
+}
+
+.graphics-card:hover img {
+    transform: scale(1.05);
+}
+
+.graphics-card h3 {
+    font-size: 1.3rem;
+    margin-bottom: 8px;
+    color: #007bff;
+}
+
+.graphics-card p {
+    font-size: 0.95rem;
+    color: #333;
+}
+
+.graphics-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 18px 40px rgba(0,123,255,0.25);
+}
+
+/* View more button */
+.view-more {
+    margin-top: 50px;
+}
+
+.view-more-btn {
+    display: inline-block;
+    padding: 14px 36px;
+    background: linear-gradient(135deg, #007bff, #00c3ff);
+    color: #fff;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 1.05rem;
+    border-radius: 30px;
+    transition: all 0.35s ease;
+    box-shadow: 0 6px 18px rgba(0, 195, 255,0.35);
+}
+
+.view-more-btn:hover {
+    transform: translateY(-4px) scale(1.03);
+    box-shadow: 0 10px 28px rgba(0, 195, 255,0.55);
+    background: linear-gradient(135deg, #084298, #009dc7);
+}
+
+/* Mobile responsiveness */
+@media (max-width: 600px) {
+    .graphics-card {
+        padding: 15px;
+    }
+    .view-more-btn {
+        padding: 12px 28px;
+        font-size: 0.95rem;
+    }
+}
+
+/* =====================
+   LIGHTBOX
+===================== */
+.lightbox {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.9);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 2000;
+    padding: 20px;
+}
+
+.lightbox.hidden {
+    display: none;
+}
+
+.lightbox-img {
+    max-width: 90%;
+    max-height: 70%;
+    border-radius: 12px;
+    margin-bottom: 20px;
+}
+
+.lightbox-title {
+    color: #fff;
+    font-size: 1.6rem;
+    margin-bottom: 8px;
+}
+
+.lightbox-desc {
+    color: #ddd;
+    font-size: 1rem;
+    text-align: center;
+    max-width: 700px;
+    margin-bottom: 20px;
+}
+
+.lightbox .close {
+    position: absolute;
+    top: 20px;
+    right: 30px;
+    font-size: 2rem;
+    color: #fff;
+    cursor: pointer;
+}
+
+.lightbox-nav {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    transform: translateY(-50%);
+}
+
+.lightbox-nav span {
+    font-size: 3rem;
+    color: #fff;
+    cursor: pointer;
+    padding: 0 20px;
+    user-select: none;
+    transition: color 0.3s ease;
+}
+
+.lightbox-nav span:hover {
+    color: #00c3ff;
+}
+
+/* =====================
+   SCROLL ANIMATION
+===================== */
+.hidden {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+}
+
+.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* =====================
+   GRAPHICS CARDS GLOW
+===================== */
+.graphics-card {
+    background: rgba(255, 255, 255, 0.95);
+    backdrop-filter: blur(10px);
+    border-radius: 20px;
+    padding: 20px;
+    box-shadow: 0 12px 30px rgba(0,0,0,0.08);
+    transition: transform 0.4s ease, box-shadow 0.4s ease, border 0.4s ease;
+    overflow: hidden;
+    cursor: pointer;
+    border: 2px solid transparent;
+}
+
+.graphics-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 18px 40px rgba(0,123,255,0.25), 0 0 20px rgba(0,195,255,0.4);
+    border: 2px solid #00c3ff;
+}
+
+/* Glow on card image */
+.graphics-card img {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    transition: transform 0.4s ease, box-shadow 0.4s ease;
+}
+
+.graphics-card:hover img {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px rgba(0,195,255,0.6);
+}
+
+/* =====================
+   LIGHTBOX GLOW
+===================== */
+.lightbox-img {
+    max-width: 90%;
+    max-height: 70%;
+    border-radius: 12px;
+    margin-bottom: 20px;
+    transition: box-shadow 0.4s ease, transform 0.4s ease;
+}
+
+.lightbox-img:hover {
+    box-shadow: 0 0 30px #00c3ff, 0 0 50px #007bff;
+    transform: scale(1.02);
+}
+
+/* Close button glow */
+.lightbox .close:hover {
+    color: #00c3ff;
+    text-shadow: 0 0 12px #00c3ff;
+}
+
+/* Navigation arrows glow */
+.lightbox-nav span:hover {
+    color: #00c3ff;
+    text-shadow: 0 0 12px #00c3ff;
+}
+
+/* Optional: subtle background glow */
+.lightbox {
+    background: rgba(0,0,0,0.95);
+    backdrop-filter: blur(4px);
+}
+</style>
+</head>
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="container header-container">
+        <h1 class="logo">Herman Edward</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="contact.html">Contact</a>
+            <a href="javascript:history.back()" class="btn-back">← Back</a>
+        </nav>
+    </div>
+</header>
+
+<!-- GRAPHICS DESIGN PROJECTS -->
+<section class="graphics-portfolio">
+    <div class="container">
+        <h2 class="title-blue">Graphics Design Projects</h2>
+        <p class="subtitle">Click on a project to view it in full size:</p>
+
+        <div class="graphics-grid">
+            <div class="graphics-card" data-title="Graphic Project 1" data-desc="Monday mood and motivation.">
+                <img src="Design 1.jpeg" alt="Graphic 1">
+                <h3>Monday</h3>
+                <p>Blue Monday with full of motivation </p>
+            </div>
+            <div class="graphics-card" data-title="Graphic Project 2" data-desc="Mapinduzi Day in Tanzania, celebrated every 12th January.">
+                <img src="Design 2.jpeg" alt="Graphic 2">
+                <h3>Mapinduzi Day</h3>
+                <p>This is held on 12 January every year</p>
+            </div>
+            <div class="graphics-card" data-title="Graphic Project 3" data-desc="Birthday wishes for Gabriel Yustus.">
+                <img src="Design 3.jpeg" alt="Graphic 3">
+                <h3>Sabath</h3>
+                <p>Proclaim the wounder of the lord among all the people</p>
+            </div>
+            <div class="graphics-card" data-title="Graphic Project 4" data-desc="Happy Sabbath day wishes.">
+                <img src="kwaya.png" alt="Graphic 4">
+                <h3>Catholic Choir</h3>
+                <p>TMCS Takwimu Choir praise the Lord</p>
+            </div>
+            <div class="graphics-card" data-title="February" data-desc="The month of happiness, joy, and love.">
+                <img src="february.png" alt="Graphic 5">
+                <h3>February</h3>
+                <p>Month to show love for our beloved ones</p>
+            </div>
+            <div class="graphics-card" data-title="Ramadhan Qareem" data-desc="Wishing a blessed month of Ramadhan.">
+                <img src="Ramadhan.png" alt="Graphic 6">
+                <h3>Ramadhan</h3>
+                <p>Month to repent our sins and return good communication with Allah</p>
+            </div>
+             <div class="graphics-card" data-title="Ramadhan Qareem" data-desc="Wishing a blessed month of Ramadhan.">
+                <img src="women2.png" alt="Graphic 6">
+                <h3>Women</h3>
+                <p>Special day for Wemen in Muheza-Tanga</p>
+            </div>
+              <div class="graphics-card" data-title="Malaika Cakes" data-desc="Marvelous taste, bake with love.">
+                <img src="Malaika cakes.png" alt="Graphic 6">
+                <h3>Malaika Cakes</h3>
+                <p>Special flavour, baked with love</p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox hidden">
+    <span class="close">&times;</span>
+    <img class="lightbox-img" src="" alt="">
+    <h3 class="lightbox-title"></h3>
+    <p class="lightbox-desc"></p>
+    <div class="lightbox-nav">
+        <span class="prev">&#10094;</span>
+        <span class="next">&#10095;</span>
+    </div>
+</div>
+
+<!-- FOOTER -->
+<footer>
+    <p>&copy; 2026 Herman Smart | <a href="mailto:harmonysmart004@gmail.com">harmonysmart004@gmail.com</a></p>
+</footer>
+
+<!-- JS -->
+<script >
+    // Scroll reveal for graphics cards
+const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.classList.add("show");
+        }
+    });
+}, { threshold: 0.2 });
+
+document.querySelectorAll(".graphics-card").forEach(card => {
+    card.classList.add("hidden");
+    observer.observe(card);
+});
+
+// ===== LIGHTBOX FUNCTIONALITY =====
+const lightbox = document.querySelector(".lightbox");
+const lightboxImg = document.querySelector(".lightbox-img");
+const lightboxTitle = document.querySelector(".lightbox-title");
+const lightboxDesc = document.querySelector(".lightbox-desc");
+const closeBtn = document.querySelector(".lightbox .close");
+const prevBtn = document.querySelector(".lightbox .prev");
+const nextBtn = document.querySelector(".lightbox .next");
+
+const cards = document.querySelectorAll(".graphics-card");
+let currentIndex = 0;
+
+function openLightbox(index){
+    const card = cards[index];
+    lightboxImg.src = card.querySelector("img").src;
+    lightboxTitle.textContent = card.dataset.title;
+    lightboxDesc.textContent = card.dataset.desc;
+    lightbox.classList.remove("hidden");
+    currentIndex = index;
+}
+
+// Open lightbox on click
+cards.forEach((card,index)=>{
+    card.addEventListener("click",()=>openLightbox(index));
+});
+
+// Close lightbox
+closeBtn.addEventListener("click",()=>lightbox.classList.add("hidden"));
+lightbox.addEventListener("click",(e)=>{
+    if(e.target === lightbox) lightbox.classList.add("hidden");
+});
+
+// Navigation
+prevBtn.addEventListener("click",(e)=>{
+    e.stopPropagation();
+    currentIndex = (currentIndex-1+cards.length)%cards.length;
+    openLightbox(currentIndex);
+});
+nextBtn.addEventListener("click",(e)=>{
+    e.stopPropagation();
+    currentIndex = (currentIndex+1)%cards.length;
+    openLightbox(currentIndex);
+});
+</script>
+</body>
+
+</html>

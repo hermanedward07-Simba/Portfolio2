@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Herman Smart | Upload</title>
+
+<!-- Google Fonts -->
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+/* =====================
+   ROOT COLORS
+===================== */
+:root {
+    --blue-main: #00c3ff;
+    --blue-dark: #007bff;
+    --bg-light: #eef8ff;
+    --card-bg: #fff;
+    --text-dark: #222;
+}
+
+/* =====================
+   GLOBAL
+===================== */
+body {
+    margin: 0;
+    font-family: 'Montserrat', sans-serif;
+    background: var(--bg-light);
+    color: var(--text-dark);
+}
+
+.container {
+    width: 90%;
+    max-width: 1100px;
+    margin: auto;
+}
+
+/* =====================
+   HEADER
+===================== */
+header {
+    background: var(--bg-light);
+    padding: 20px 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.header-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo {
+    font-size: 28px;
+    font-weight: 700;
+    color: var(--blue-dark);
+}
+
+nav a {
+    margin-left: 20px;
+    font-weight: 500;
+    color: var(--text-dark);
+    transition: 0.3s;
+}
+
+nav a:hover,
+nav a.active {
+    color: var(--blue-main);
+}
+
+/* =====================
+   BACK BUTTON
+===================== */
+.btn-back {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--blue-main), var(--blue-dark));
+    color: #fff;
+    padding: 8px 18px;
+    border-radius: 22px;
+    font-weight: 600;
+    text-decoration: none;
+    box-shadow: 0 6px 18px rgba(0,195,255,0.35);
+    transition: all 0.35s ease;
+}
+
+.btn-back:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 28px rgba(0,195,255,0.55);
+}
+
+/* =====================
+   UPLOAD SECTION
+===================== */
+.upload {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 80px 20px;
+    min-height: 80vh;
+    text-align: center;
+}
+
+.upload h2 {
+    font-size: 2.2rem;
+    color: var(--blue-dark);
+    margin-bottom: 10px;
+}
+
+.upload p {
+    font-size: 1.1rem;
+    margin-bottom: 50px;
+    max-width: 600px;
+    line-height: 1.6;
+}
+
+/* Upload Form Cards */
+.upload-form {
+    display: flex;
+    gap: 30px;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 100%;
+    max-width: 1200px;
+}
+
+.category-box {
+    background: var(--card-bg);
+    padding: 35px 25px;
+    border-radius: 20px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.08);
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.category-box:hover {
+    transform: translateY(-8px) scale(1.02);
+    box-shadow: 0 20px 45px rgba(0,123,255,0.2);
+}
+
+.category-box label {
+    font-weight: 600;
+    color: var(--blue-dark);
+    margin-bottom: 15px;
+    font-size: 16px;
+}
+
+.category-box input[type="file"] {
+    padding: 12px;
+    border-radius: 12px;
+    border: 1px dashed var(--blue-main);
+    width: 100%;
+    cursor: pointer;
+    margin-bottom: 25px;
+    transition: background 0.3s, border-color 0.3s;
+}
+
+.category-box input[type="file"]:hover {
+    background: #e0f0ff;
+    border-color: var(--blue-dark);
+}
+
+/* Upload Button */
+.btn.btn-blue {
+    padding: 12px 20px;
+    font-weight: 600;
+    border-radius: 25px;
+    background: linear-gradient(135deg, var(--blue-main), var(--blue-dark));
+    color: #fff;
+    border: none;
+    cursor: pointer;
+    width: 100%;
+    transition: all 0.35s ease;
+}
+
+.btn.btn-blue:hover {
+    transform: translateY(-2px) scale(1.03);
+    box-shadow: 0 12px 28px rgba(0,123,255,0.35);
+}
+
+/* =====================
+   FOOTER
+===================== */
+footer {
+    margin-top: 60px;
+    text-align: center;
+    padding: 25px;
+    color: var(--text-dark);
+    font-size: 14px;
+}
+
+footer a {
+    color: var(--blue-main);
+    font-weight: 500;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* =====================
+   RESPONSIVE
+===================== */
+@media(max-width:960px){
+    .upload-form {
+        flex-direction: column;
+        align-items: center;
+        gap: 25px;
+    }
+    .category-box {
+        width: 90%;
+    }
+}
+
+</style>
+</head>
+<body>
+
+<!-- Header -->
+<header>
+    <div class="container header-container">
+        <h1 class="logo">Herman Edward</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="contact.html">Contact</a>
+            <a href="javascript:history.back()" class="btn-back">← Back</a>
+        </nav>
+    </div>
+</header>
+
+<!-- Upload Section -->
+<section class="upload">
+    <h2>Upload Your Projects</h2>
+    <p>Select your files for each category below. Ensure correct file types before uploading.</p>
+
+    <div class="upload-form">
+        <!-- Website & Systems -->
+        <form action="upload.php" method="post" enctype="multipart/form-data" class="category-box">
+            <label for="website-project">Website & System Project</label>
+            <input type="file" id="website-project" name="website_project" required>
+            <button type="submit" class="btn btn-blue">Upload</button>
+        </form>
+
+        <!-- Graphic Design -->
+        <form action="upload.php" method="post" enctype="multipart/form-data" class="category-box">
+            <label for="graphic-design">Graphic Design</label>
+            <input type="file" id="graphic-design" name="graphic_design" required>
+            <button type="submit" class="btn btn-blue">Upload</button>
+        </form>
+
+        <!-- Data Analysis -->
+        <form action="upload.php" method="post" enctype="multipart/form-data" class="category-box">
+            <label for="data-analysis">Data Analysis</label>
+            <input type="file" id="data-analysis" name="data_analysis" required>
+            <button type="submit" class="btn btn-blue">Upload</button>
+        </form>
+    </div>
+</section>
+
+<!-- Footer -->
+<footer>
+    <p>&copy; 2026 Herman Smart | <a href="mailto:harmonysmart004@gmail.com">harmonysmart004@gmail.com</a></p>
+</footer>
+
+</body>
+</html>

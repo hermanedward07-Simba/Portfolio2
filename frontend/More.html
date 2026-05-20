@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>More Designs | Herman Edward</title>
+
+    <!-- Main site CSS -->
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Page-specific styles -->
+    <style>
+        .more-designs {
+            padding: 60px 20px;
+            background-color: #eef8ff;
+            min-height: 100vh;
+            text-align: center;
+        }
+
+        .more-designs h2 {
+            color: #00c3ff;
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        .more-designs p {
+            color: #555;
+            margin-bottom: 40px;
+            font-size: 1.1rem;
+        }
+
+        .designs-grid {
+            width: 90%;
+            max-width: 1300px;
+            margin: auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 30px;
+        }
+
+        .design-card {
+            background: #fff;
+            border-radius: 14px;
+            padding: 15px;
+            box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+            transition: transform 0.35s ease, box-shadow 0.35s ease;
+        }
+
+        .design-card:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 10px 28px rgba(0,195,255,0.35);
+        }
+
+        .design-card img {
+            width: 100%;
+            border-radius: 12px;
+            margin-bottom: 15px;
+        }
+
+        .design-card h3 {
+            color: #00c3ff;
+            margin-bottom: 8px;
+        }
+
+        .design-card p {
+            color: #444;
+            font-size: 0.95rem;
+            margin-bottom: 15px;
+        }
+
+        .design-card a {
+            display: inline-block;
+            padding: 10px 22px;
+            background: #0d6efd;
+            color: #fff;
+            text-decoration: none;
+            font-weight: 600;
+            border-radius: 25px;
+            transition: 0.3s ease;
+        }
+
+        .design-card a:hover {
+            background: #084298;
+        }
+
+        .back-btn {
+            display: inline-block;
+            margin-top: 50px;
+            padding: 12px 30px;
+            background: #00c3ff;
+            color: white;
+            text-decoration: none;
+            border-radius: 30px;
+            font-weight: 600;
+            transition: 0.3s ease;
+        }
+
+        .back-btn:hover {
+            background: #009dc7;
+            transform: translateY(-3px);
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+    <div class="header-container">
+        <h1 class="logo">Herman Edward</h1>
+        <nav>
+            <a href="index.html">Home</a>
+            <a href="portfolio.html" class="active">Portfolio</a>
+            <a href="contact.html">Contact</a>
+        </nav>
+    </div>
+</header>
+
+<!-- MORE DESIGNS SECTION -->
+<section class="more-designs">
+    <h2>More Designs</h2>
+    <p>Explore more websites, systems, and creative designs</p>
+
+    <div class="designs-grid">
+
+        <!-- DESIGN CARD -->
+        <div class="design-card">
+            <img src="zainab.png" alt="Design 1">
+            <h3>Website Design</h3>
+            <p>Modern responsive website layout.</p>
+            <a href="#" target="_blank">View</a>
+        </div>
+
+        <div class="design-card">
+            <img src="kwaya.png" alt="Design 2">
+            <h3>System Dashboard</h3>
+            <p>Clean admin dashboard interface.</p>
+            <a href="#" target="_blank">View</a>
+        </div>
+
+        <div class="design-card">
+            <img src="dommy.png" alt="Design 3">
+            <h3>Landing Page</h3>
+            <p>High-conversion landing page design.</p>
+            <a href="#" target="_blank">View</a>
+        </div>
+
+        <!-- Copy this block to add more designs -->
+        <!--
+        <div class="design-card">
+            <img src="design4.jpg" alt="Design">
+            <h3>Project Title</h3>
+            <p>Short description here.</p>
+            <a href="#" target="_blank">View</a>
+        </div>
+        -->
+
+    </div>
+
+    <a href="portfolio.html" class="back-btn">← Back to Portfolio</a>
+</section>
+
+<!-- FOOTER -->
+<footer>
+    <p>
+        Contact me at:
+        <a href="mailto:harmonysmart004@gmail.com">harmonysmart004@gmail.com</a>
+    </p>
+</footer>
+
+</body>
+</html>
